@@ -1,0 +1,29 @@
+﻿@model IEnumerable<TodoItem>
+
+@{
+    ViewBag.Title = "Completed items";
+    Layout = "_Layout";
+}
+
+<h2>Completed ToDo</h2>
+
+<br/>
+
+<a asp-controller="Todo" , asp-action="Index" class="btn btn-danger">
+    Return to active items.
+    <span class="glyphicon glyphicon-list"></span>
+</a>
+
+<br />
+
+@foreach (var item in Model)
+{
+    <hr />
+
+    <p>
+        <strong>@item.Text</strong><br />
+        @item.DateCreated<br />
+        <label class="control-label">Date created</label>
+        <label class="control-label">Date completed</label>
+    </p>
+}

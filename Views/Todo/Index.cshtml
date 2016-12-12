@@ -1,0 +1,35 @@
+﻿@model IEnumerable<TodoItem>
+
+@{
+    ViewBag.Title = "Active items";
+    Layout = "_Layout";
+}
+
+<h2>Active ToDo</h2>
+<br/>
+
+<a asp-controller="Todo", asp-action="CreateTodoItem">
+    Add new todo
+    <span class ="glyphicon glyphicon-plus-sign"></span>
+</a>
+
+<a asp-controller="Todo" , asp-action="GetCompleted">
+    View completed todos
+    <span class="glyphicon glyphicon-book"></span>
+</a>
+
+<br/>
+
+@foreach (var item in Model)
+{
+    <hr/>
+
+    <p>
+        <strong>@item.Text</strong><br/>
+        @item.DateCreated<br/>
+        <a asp-controller="Todo" asp asp-action="MarkAsCompleted" asp-route-todoId="@item.Id">
+            Mark as completed
+            <span class="glyphicon glyphicon-check"></span>
+        </a>
+    </p>
+}

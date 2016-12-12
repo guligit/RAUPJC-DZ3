@@ -1,0 +1,27 @@
+﻿@model AddTodoViewModel
+
+@{
+    ViewBag.Title = "Add a new item";
+    Layout = "_Layout";
+}
+
+<h2>Add a new item</h2>
+
+<br/>
+
+<a asp-controller="Todo" , asp-action="Index" class="btn btn-danger">
+    Return to active items.
+    <span class = "glyphicon glyphicon-list"></span>
+</a>
+
+<br />
+
+<form asp-action="CreateTodoItem" method=" "post" class="form form-group">
+    <div class="form-group">
+        <label class =" col-md-2 control-label">Todo</label>
+        <input asp-for="Text" class="form-control"/>
+        <span asp-validation-for="Text"></span>
+    </div>
+    
+    <input type="submit" value="Add a new item" class="btn btn-primary"/>
+</form>
